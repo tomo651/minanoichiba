@@ -45,3 +45,6 @@ docs/_build/
 target/
 # Vim
 .ropeproject
+# For IDE
+.idea/**/workspace.xml
+.idea/**/tasks.xml
