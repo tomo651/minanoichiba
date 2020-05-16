@@ -38,6 +38,7 @@ class Login(LoginView):
 class Logout(LogoutView):
     template_name = 'cms/top.html'
 
+
 class UserCreate(CreateView):
     form_class = UserCreateForm
     template_name = 'cms/signup.html'
@@ -49,6 +50,7 @@ class UserCreate(CreateView):
         self.object = user
         return HttpResponseRedirect(self.get_success_url())
 
+
 class UserUpdate(OnlyYouMixin, UpdateView):
     model = UserModel
     form_class = UserUpdateForm
@@ -57,10 +59,12 @@ class UserUpdate(OnlyYouMixin, UpdateView):
     def get_success_url(self):
         return resolve_url('cms:user_detail', pk=self.kwargs['pk'])
 
+
 class UserDelete(OnlyYouMixin, DeleteView):
     model = UserModel
     template_name = 'cms/user_delete.html'
     success_url = reverse_lazy('cms:top')
+
 
 class UserDetail(DetailView):
     model = UserModel
@@ -71,6 +75,11 @@ class UserDetail(DetailView):
         context['pk'] = self.kwargs['pk']
         return context
 
+
 class UserList(ListView):
     model = UserModel
     template_name = 'cms/user_list.html'
+
+
+class Moreinfo(TemplateView):
+    template_name = moreinfo.html
