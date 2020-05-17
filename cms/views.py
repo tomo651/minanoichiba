@@ -81,5 +81,6 @@ class UserList(ListView):
     template_name = 'cms/user_list.html'
 
 
-class Moreinfo(TemplateView):
-    template_name = moreinfo.html
+def moreinfo(request):
+    return render(request, 'cms/moreinfo.html',{})
+
